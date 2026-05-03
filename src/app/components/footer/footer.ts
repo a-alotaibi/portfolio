@@ -2,8 +2,6 @@ import { Component, inject } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 import { RevealDirective } from '../../directives/reveal.directive';
 
-interface SocialLink { label: string; href: string; iconPath: string; }
-
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -45,15 +43,6 @@ interface SocialLink { label: string; href: string; iconPath: string; }
               <li><a href="https://wa.me/9665XXXXXXXX" target="_blank" rel="noopener">{{ lang.t('واتساب', 'WhatsApp') }}</a></li>
               <li class="loc">📍 {{ lang.t('الرياض، السعودية', 'Riyadh, Saudi Arabia') }}</li>
             </ul>
-            <div class="socials">
-              @for (s of socials; track s.label) {
-                <a [href]="s.href" target="_blank" rel="noopener" [attr.aria-label]="s.label" class="soc">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path [attr.d]="s.iconPath"/>
-                  </svg>
-                </a>
-              }
-            </div>
           </div>
         </div>
 
@@ -163,29 +152,6 @@ interface SocialLink { label: string; href: string; iconPath: string; }
     html[dir='rtl'] .col a:hover { transform: translateX(-3px); }
     .col li.loc { font-size: 0.88rem; }
 
-    .socials {
-      display: flex;
-      gap: 8px;
-      margin-top: 16px;
-    }
-    .soc {
-      width: 36px; height: 36px;
-      display: grid;
-      place-items: center;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      border-radius: 50%;
-      transition: 0.25s var(--ease-bounce);
-    }
-    .soc:hover {
-      background: var(--grad-1);
-      color: #fff;
-      border-color: transparent;
-      transform: translateY(-3px) scale(1.08);
-      box-shadow: 0 12px 24px -8px var(--c1);
-    }
-
     .bar {
       display: flex;
       align-items: center;
@@ -217,11 +183,4 @@ interface SocialLink { label: string; href: string; iconPath: string; }
 export class FooterComponent {
   protected lang = inject(LanguageService);
   protected year = new Date().getFullYear();
-
-  protected socials: SocialLink[] = [
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/abdulaziz',
-      iconPath: 'M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.74H5.67v8.6h2.67zM7 8.55a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.79v-4.71c0-2.5-1.34-3.66-3.12-3.66a2.7 2.7 0 0 0-2.45 1.34V9.74h-2.67v8.6h2.67v-4.74c0-1.04.45-1.66 1.4-1.66.85 0 1.5.6 1.5 1.7v4.7h2.67z' },
-    { label: 'X',        href: 'https://x.com/abdulaziz',
-      iconPath: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z' }
-  ];
 }
