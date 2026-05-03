@@ -42,7 +42,11 @@ type Project = ProjectModalData & { platform: Exclude<Platform, 'all'> };
                      (mouseleave)="resetTilt($event)">
               <div class="app-row">
                 <div class="app-icon" [style.background]="p.gradient">
-                  <span class="emoji">{{ p.emoji }}</span>
+                  @if (p.image) {
+                    <img [src]="p.image" [alt]="lang.isAr() ? p.ar.title : p.en.title" class="icon-img">
+                  } @else {
+                    <span class="emoji">{{ p.emoji }}</span>
+                  }
                   <div class="icon-shine"></div>
                 </div>
 
@@ -196,6 +200,12 @@ type Project = ProjectModalData & { platform: Exclude<Platform, 'all'> };
     .app-icon .emoji {
       font-size: 2.4rem;
       filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+    .app-icon .icon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .icon-shine {
       position: absolute;
@@ -362,6 +372,7 @@ export class ProjectsComponent {
       tags: ['Flutter', 'Dart', 'Firebase', 'Provider', 'REST API'],
       gradient: 'linear-gradient(135deg, #2ee6a8 0%, #7b5cff 100%)',
       emoji: '🐝',
+      image: 'projects/app_icon.png',
       link: '#',
       meta: {
         ar: { role: 'مطور Flutter', year: '2025' },

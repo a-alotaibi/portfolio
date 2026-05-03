@@ -15,6 +15,7 @@ export interface ProjectModalData {
   tags: string[];
   gradient: string;
   emoji: string;
+  image?: string;
   link?: string;
   features: { ar: string; en: string }[];
   meta: { ar: { role: string; year: string }; en: { role: string; year: string } };
@@ -45,7 +46,11 @@ export interface ProjectModalData {
 
           <header class="app-header">
             <div class="app-icon" [style.background]="project()!.gradient">
-              <span class="emoji">{{ project()!.emoji }}</span>
+              @if (project()!.image) {
+                <img [src]="project()!.image" [alt]="lang.isAr() ? project()!.ar.title : project()!.en.title" class="icon-img">
+              } @else {
+                <span class="emoji">{{ project()!.emoji }}</span>
+              }
               <div class="icon-shine"></div>
             </div>
             <div class="title-block">
@@ -296,6 +301,12 @@ export interface ProjectModalData {
     .app-icon .emoji {
       font-size: 3.5rem;
       filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
+    }
+    .app-icon .icon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .icon-shine {
       position: absolute;
