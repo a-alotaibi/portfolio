@@ -7,6 +7,7 @@ interface Job {
   en: { role: string; company: string; desc: string };
   period: string;
   emoji: string;
+  logo?: string;
   gradient: string;
   tags: string[];
   current?: boolean;
@@ -33,9 +34,15 @@ interface Job {
 
               <div class="card">
                 <div class="card-head">
-                  <div class="icon" [style.background]="job.gradient">
-                    <span>{{ job.emoji }}</span>
-                  </div>
+                  @if (job.logo) {
+                    <div class="icon icon-logo">
+                      <img [src]="job.logo" [alt]="lang.isAr() ? job.ar.company : job.en.company">
+                    </div>
+                  } @else {
+                    <div class="icon" [style.background]="job.gradient">
+                      <span>{{ job.emoji }}</span>
+                    </div>
+                  }
                   <div class="head-info">
                     <h3>{{ lang.isAr() ? job.ar.role : job.en.role }}</h3>
                     <div class="company">
@@ -122,6 +129,16 @@ interface Job {
     }
     .card:hover .icon { transform: rotate(-8deg) scale(1.06); }
     .icon span { font-size: 1.7rem; }
+    .icon-logo {
+      background: #fff;
+      padding: 8px;
+    }
+    .icon-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
 
     .head-info { flex: 1; min-width: 0; }
     h3 {
@@ -211,6 +228,7 @@ export class ExperienceComponent {
         desc: 'Building iOS/Android apps and modern web platforms with Angular and Next.js. Focused on UX, performance, and delivering digital solutions for planning, architecture, and engineering projects.'
       },
       emoji: '🚀',
+      logo: 'companies/beeah.png',
       gradient: 'linear-gradient(135deg, #ff4ecd 0%, #7b5cff 100%)',
       tags: ['Swift', 'Kotlin', 'Angular', 'Next.js', 'TypeScript'],
       current: true
