@@ -59,7 +59,7 @@ import { TypewriterDirective } from '../../directives/typewriter.directive';
 
           <div class="stats" reveal="up" [delay]="500">
             <div class="stat">
-              <div class="stat-num"><span [countUp]="30" suffix="+"></span></div>
+              <div class="stat-num"><span [countUp]="10" suffix="+"></span></div>
               <div class="stat-label">{{ lang.t('مشروع', 'Projects shipped') }}</div>
             </div>
             <div class="stat">
