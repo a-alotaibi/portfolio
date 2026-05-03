@@ -347,7 +347,40 @@ export class ProjectsComponent {
 
   setFilter(id: Platform) { this.active.set(id); }
 
-  protected projects: Project[] = [];
+  protected projects: Project[] = [
+    {
+      ar: {
+        title: 'BEEAH App',
+        desc: 'تطبيق إنتاجية بـ Flutter يدير مهامك اليومية بواجهة أنيقة وتجربة سلسة على iOS و Android.',
+        long: 'تطبيق إنتاجية متعدد المنصات مبني بـ Flutter، يجمع إدارة المهام، التذكيرات الذكية، ومزامنة فورية عبر السحابة. صُمم بأداء native على iOS و Android من نفس الكود، مع دعم كامل للوضع الليلي وواجهة عربية/إنجليزية.'
+      },
+      en: {
+        title: 'BEEAH App',
+        desc: 'A Flutter productivity app that manages your daily tasks with a polished UI and smooth UX on iOS and Android.',
+        long: 'A cross-platform productivity app built with Flutter — combining task management, smart reminders, and real-time cloud sync. Native-feeling performance on both iOS and Android from a single codebase, with full dark mode and bilingual Arabic/English UI.'
+      },
+      tags: ['Flutter', 'Dart', 'Firebase', 'Provider', 'REST API'],
+      gradient: 'linear-gradient(135deg, #2ee6a8 0%, #7b5cff 100%)',
+      emoji: '🐝',
+      link: '#',
+      meta: {
+        ar: { role: 'مطور Flutter', year: '2025' },
+        en: { role: 'Flutter Developer', year: '2025' }
+      },
+      features: [
+        { ar: 'يعمل على iOS و Android من نفس الكود',  en: 'Single codebase for iOS & Android' },
+        { ar: 'مزامنة فورية عبر السحابة',              en: 'Real-time cloud sync' },
+        { ar: 'تذكيرات وإشعارات ذكية',                 en: 'Smart reminders & notifications' },
+        { ar: 'وضع ليلي ودعم عربي/إنجليزي كامل',       en: 'Dark mode & full Arabic/English support' }
+      ],
+      rating: 4.8,
+      reviews: 'New',
+      age: '4+',
+      size: '—',
+      category: { ar: 'أدوات وإنتاجية', en: 'Productivity' },
+      platform: 'mobile'
+    }
+  ];
 
   open(p: Project) {
     this.selected.set(p);
