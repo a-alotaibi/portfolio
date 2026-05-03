@@ -404,6 +404,12 @@ export class ProjectsComponent {
       gradient: 'linear-gradient(135deg, #2ee6a8 0%, #7b5cff 100%)',
       emoji: '🐝',
       image: 'projects/app_icon.png',
+      images: [
+        'projects/beeah/01-home.png',
+        'projects/beeah/02-menu.png',
+        'projects/beeah/03-business.png',
+        'projects/beeah/04-calendar.png'
+      ],
       link: '#',
       meta: {
         ar: { role: 'مطور Flutter', year: '2025' },

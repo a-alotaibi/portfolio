@@ -110,41 +110,49 @@ export interface ProjectModalData {
           <div class="screenshots-wrap">
             <h3 class="ss-title">{{ lang.t('لقطات من التطبيق', 'Preview') }}</h3>
             <div class="screenshots">
-              <div class="ss" [style.background]="project()!.gradient">
-                <div class="ss-status"><span>9:41</span><span class="ss-bat"></span></div>
-                <div class="ss-emoji">{{ project()!.emoji }}</div>
-                <div class="ss-title-line"></div>
-                <div class="ss-line"></div>
-                <div class="ss-card"></div>
-                <div class="ss-card"></div>
-              </div>
-              <div class="ss ss-dark">
-                <div class="ss-status"><span>9:41</span><span class="ss-bat"></span></div>
-                <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w70"></span></div>
-                <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w50"></span></div>
-                <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w60"></span></div>
-                <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w40"></span></div>
-                <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w70"></span></div>
-              </div>
-              <div class="ss" [style.background]="project()!.gradient">
-                <div class="ss-status"><span>9:41</span><span class="ss-bat"></span></div>
-                <div class="ss-grid">
-                  <div class="ss-tile"></div><div class="ss-tile"></div>
-                  <div class="ss-tile"></div><div class="ss-tile"></div>
-                  <div class="ss-tile"></div><div class="ss-tile"></div>
+              @if (project()!.images?.length) {
+                @for (img of project()!.images!; track img) {
+                  <div class="ss ss-real">
+                    <img [src]="img" [alt]="lang.isAr() ? project()!.ar.title : project()!.en.title" loading="lazy">
+                  </div>
+                }
+              } @else {
+                <div class="ss" [style.background]="project()!.gradient">
+                  <div class="ss-status"><span>9:41</span><span class="ss-bat"></span></div>
+                  <div class="ss-emoji">{{ project()!.emoji }}</div>
+                  <div class="ss-title-line"></div>
+                  <div class="ss-line"></div>
+                  <div class="ss-card"></div>
+                  <div class="ss-card"></div>
                 </div>
-              </div>
-              <div class="ss ss-dark">
-                <div class="ss-status"><span>9:41</span><span class="ss-bat"></span></div>
-                <div class="ss-hero-card" [style.background]="project()!.gradient">
-                  <div class="ss-emoji-sm">{{ project()!.emoji }}</div>
+                <div class="ss ss-dark">
+                  <div class="ss-status"><span>9:41</span><span class="ss-bat"></span></div>
+                  <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w70"></span></div>
+                  <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w50"></span></div>
+                  <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w60"></span></div>
+                  <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w40"></span></div>
+                  <div class="ss-row"><span class="ss-avatar" [style.background]="project()!.gradient"></span><span class="ss-line w70"></span></div>
                 </div>
-                <div class="ss-line w60"></div>
-                <div class="ss-line w40 dim"></div>
-                <div class="ss-btn" [style.background]="project()!.gradient"></div>
-                <div class="ss-line w50 dim"></div>
-                <div class="ss-line w70 dim"></div>
-              </div>
+                <div class="ss" [style.background]="project()!.gradient">
+                  <div class="ss-status"><span>9:41</span><span class="ss-bat"></span></div>
+                  <div class="ss-grid">
+                    <div class="ss-tile"></div><div class="ss-tile"></div>
+                    <div class="ss-tile"></div><div class="ss-tile"></div>
+                    <div class="ss-tile"></div><div class="ss-tile"></div>
+                  </div>
+                </div>
+                <div class="ss ss-dark">
+                  <div class="ss-status"><span>9:41</span><span class="ss-bat"></span></div>
+                  <div class="ss-hero-card" [style.background]="project()!.gradient">
+                    <div class="ss-emoji-sm">{{ project()!.emoji }}</div>
+                  </div>
+                  <div class="ss-line w60"></div>
+                  <div class="ss-line w40 dim"></div>
+                  <div class="ss-btn" [style.background]="project()!.gradient"></div>
+                  <div class="ss-line w50 dim"></div>
+                  <div class="ss-line w70 dim"></div>
+                </div>
+              }
             </div>
           </div>
 
@@ -467,6 +475,19 @@ export interface ProjectModalData {
     }
     .ss:hover { transform: translateY(-6px) scale(1.03); }
     .ss-dark { background: linear-gradient(180deg, #1a1a2e 0%, #0f0f23 100%); }
+
+    .ss-real {
+      width: 200px;
+      padding: 0;
+      background: #000;
+      gap: 0;
+    }
+    .ss-real img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     .ss-status {
       display: flex;
