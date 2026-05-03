@@ -428,6 +428,44 @@ export class ProjectsComponent {
       size: '—',
       category: { ar: 'تطبيقات شركات', en: 'Enterprise' },
       platform: 'mobile'
+    },
+    {
+      ar: {
+        title: 'ذكِّرني',
+        desc: 'تطبيق إسلامي شامل: مواقيت الصلاة بالموقع، الأذكار، المصحف، بوصلة القبلة، وعدّاد التسبيح — كل ما يحتاجه المسلم في تطبيق واحد.',
+        long: 'تطبيق Flutter صُمّم للمسلم اليومي. يعرض مواقيت الصلاة بدقة حسب موقعك مع إشعارات لكل صلاة، وبنر للصلاة القادمة مع العد التنازلي. يضم أذكار الصباح والمساء، المصحف الشريف كاملاً، عدّاد التسبيح الرقمي، وبوصلة القبلة باستخدام مستشعر الجهاز. يدعم التقويمين الهجري والميلادي مع وضعَي ليل ونهار.'
+      },
+      en: {
+        title: 'Zakrni',
+        desc: 'A complete Islamic companion: location-based prayer times, adhkar, Quran, Qibla compass, and a tasbih counter — everything a Muslim needs in one app.',
+        long: "A Flutter app built for the daily Muslim. Accurate location-based prayer times with per-prayer notifications and a next-prayer countdown banner. Includes morning & evening adhkar, the full Quran, a digital tasbih counter, and a Qibla compass using the device sensor. Supports both Hijri & Gregorian calendars with light and dark modes."
+      },
+      tags: ['Flutter', 'Dart', 'Geolocation', 'Local Notifications', 'Compass', 'Hijri'],
+      gradient: 'linear-gradient(135deg, #0E3535 0%, #2ee6a8 100%)',
+      emoji: '📿',
+      link: '#',
+      meta: {
+        ar: { role: 'مطور Flutter', year: '2026' },
+        en: { role: 'Flutter Developer', year: '2026' }
+      },
+      features: [
+        { ar: 'مواقيت الصلاة دقيقة حسب الموقع',          en: 'Accurate location-based prayer times' },
+        { ar: 'إشعارات لكل صلاة',                        en: 'Per-prayer notifications' },
+        { ar: 'بنر العد التنازلي للصلاة القادمة',         en: 'Next-prayer countdown banner' },
+        { ar: 'أذكار الصباح والمساء',                     en: 'Morning & evening adhkar' },
+        { ar: 'المصحف الشريف كامل',                       en: 'Full Quran reader' },
+        { ar: 'بوصلة القبلة (مستشعر الجهاز)',             en: 'Qibla compass (device sensor)' },
+        { ar: 'عدّاد التسبيح الرقمي',                     en: 'Digital tasbih counter' },
+        { ar: 'تقويم هجري وميلادي',                       en: 'Hijri & Gregorian calendars' },
+        { ar: 'وضع ليلي ونهاري',                          en: 'Light & dark mode' },
+        { ar: 'تشغيل الأذان',                             en: 'Adhan audio playback' }
+      ],
+      rating: 5.0,
+      reviews: 'New',
+      age: '4+',
+      size: '—',
+      category: { ar: 'إسلامي', en: 'Islamic' },
+      platform: 'mobile'
     }
   ];
 
