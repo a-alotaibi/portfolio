@@ -53,10 +53,17 @@ type Project = ProjectModalData & { platform: Exclude<Platform, 'all'> };
                 <div class="app-info">
                   <h3>{{ lang.isAr() ? p.ar.title : p.en.title }}</h3>
                   <div class="category">{{ lang.isAr() ? p.meta.ar.role : p.meta.en.role }}</div>
-                  <div class="rating">
-                    <span class="stars">★★★★★</span>
-                    <span class="rating-count">· {{ p.rating }} ({{ p.reviews }})</span>
-                  </div>
+                  @if (p.internal) {
+                    <div class="badge-internal">
+                      <span class="badge-dot"></span>
+                      {{ lang.t('داخلي · للموظفين', 'Internal · Employees only') }}
+                    </div>
+                  } @else {
+                    <div class="rating">
+                      <span class="stars">★★★★★</span>
+                      <span class="rating-count">· {{ p.rating }} ({{ p.reviews }})</span>
+                    </div>
+                  }
                 </div>
 
                 <button class="get-btn" type="button" (click)="open(p)">
@@ -68,8 +75,13 @@ type Project = ProjectModalData & { platform: Exclude<Platform, 'all'> };
 
               <div class="meta-bar">
                 <div class="meta-cell">
-                  <small>{{ lang.t('التقييم', 'Rating') }}</small>
-                  <strong>{{ p.rating }}<span class="m-star">★</span></strong>
+                  @if (p.internal) {
+                    <small>{{ lang.t('الاستخدام', 'Access') }}</small>
+                    <strong>{{ lang.t('داخلي', 'Internal') }}</strong>
+                  } @else {
+                    <small>{{ lang.t('التقييم', 'Rating') }}</small>
+                    <strong>{{ p.rating }}<span class="m-star">★</span></strong>
+                  }
                 </div>
                 <div class="meta-cell">
                   <small>{{ lang.t('العمر', 'Age') }}</small>
@@ -240,6 +252,25 @@ type Project = ProjectModalData & { platform: Exclude<Platform, 'all'> };
       letter-spacing: 1px;
       font-size: 0.75rem;
     }
+    .badge-internal {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(46, 230, 168, 0.12);
+      border: 1px solid rgba(46, 230, 168, 0.35);
+      border-radius: 999px;
+      color: var(--c5);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--c5);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--c5);
+    }
 
     .get-btn {
       padding: 7px 22px;
@@ -361,15 +392,15 @@ export class ProjectsComponent {
     {
       ar: {
         title: 'BEEAH App',
-        desc: 'تطبيق إنتاجية بـ Flutter يدير مهامك اليومية بواجهة أنيقة وتجربة سلسة على iOS و Android.',
-        long: 'تطبيق إنتاجية متعدد المنصات مبني بـ Flutter، يجمع إدارة المهام، التذكيرات الذكية، ومزامنة فورية عبر السحابة. صُمم بأداء native على iOS و Android من نفس الكود، مع دعم كامل للوضع الليلي وواجهة عربية/إنجليزية.'
+        desc: 'تطبيق داخلي شامل لموظفي الشركة، مربوط مع نظام Odoo ERP — إجازات، استئذانات، تيكتات، متابعة مشاريع، وبصمة دخول وخروج من الجوال.',
+        long: 'تطبيق Flutter مخصص لموظفي الشركة، مدمج بالكامل مع نظام Odoo ERP. يوفّر منصة موحّدة لإدارة الإجازات والاستئذانات، رفع تيكتات الدعم، متابعة المشاريع والمهام، وتسجيل بصمة الحضور والانصراف. أداء native على iOS و Android من نفس الكود، مع دعم كامل للوضع الليلي وواجهة عربية/إنجليزية.'
       },
       en: {
         title: 'BEEAH App',
-        desc: 'A Flutter productivity app that manages your daily tasks with a polished UI and smooth UX on iOS and Android.',
-        long: 'A cross-platform productivity app built with Flutter — combining task management, smart reminders, and real-time cloud sync. Native-feeling performance on both iOS and Android from a single codebase, with full dark mode and bilingual Arabic/English UI.'
+        desc: 'A comprehensive internal employee app integrated with Odoo ERP — leaves, excuses, support tickets, project tracking, and attendance check-in/out from the phone.',
+        long: 'A Flutter app for company employees, fully integrated with Odoo ERP. Provides a unified platform for leave and excuse requests, support tickets, project & task tracking, and attendance clocking. Native-feeling performance on iOS and Android from a single codebase, with dark mode and bilingual Arabic/English support.'
       },
-      tags: ['Flutter', 'Dart', 'Firebase', 'Provider', 'REST API'],
+      tags: ['Flutter', 'Dart', 'Odoo', 'REST API', 'ERP'],
       gradient: 'linear-gradient(135deg, #2ee6a8 0%, #7b5cff 100%)',
       emoji: '🐝',
       image: 'projects/app_icon.png',
@@ -379,16 +410,17 @@ export class ProjectsComponent {
         en: { role: 'Flutter Developer', year: '2025' }
       },
       features: [
-        { ar: 'يعمل على iOS و Android من نفس الكود',  en: 'Single codebase for iOS & Android' },
-        { ar: 'مزامنة فورية عبر السحابة',              en: 'Real-time cloud sync' },
-        { ar: 'تذكيرات وإشعارات ذكية',                 en: 'Smart reminders & notifications' },
-        { ar: 'وضع ليلي ودعم عربي/إنجليزي كامل',       en: 'Dark mode & full Arabic/English support' }
+        { ar: 'إدارة الإجازات والاستئذانات',                 en: 'Leave & excuse requests' },
+        { ar: 'رفع ومتابعة تيكتات الدعم',                    en: 'Submit & track support tickets' },
+        { ar: 'متابعة المشاريع والمهام',                     en: 'Project & task tracking' },
+        { ar: 'بصمة الحضور والانصراف',                       en: 'Attendance check-in / out' },
+        { ar: 'إشعارات فورية للموافقات والتحديثات',          en: 'Real-time approval & update notifications' },
+        { ar: 'مزامنة كاملة مع Odoo ERP',                    en: 'Full sync with Odoo ERP' }
       ],
-      rating: 4.8,
-      reviews: 'New',
-      age: '4+',
+      internal: true,
+      age: '—',
       size: '—',
-      category: { ar: 'أدوات وإنتاجية', en: 'Productivity' },
+      category: { ar: 'تطبيقات شركات', en: 'Enterprise' },
       platform: 'mobile'
     }
   ];

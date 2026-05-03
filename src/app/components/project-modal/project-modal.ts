@@ -16,11 +16,13 @@ export interface ProjectModalData {
   gradient: string;
   emoji: string;
   image?: string;
+  images?: string[];
   link?: string;
   features: { ar: string; en: string }[];
   meta: { ar: { role: string; year: string }; en: { role: string; year: string } };
-  rating: number;
-  reviews: string;
+  rating?: number;
+  reviews?: string;
+  internal?: boolean;
   age: string;
   size: string;
   category: { ar: string; en: string };
@@ -76,11 +78,17 @@ export interface ProjectModalData {
           </header>
 
           <div class="meta-bar">
-            
+
             <div class="meta-cell">
-              <small>{{ lang.t('التقييم', 'Rating') }}</small>
-              <strong>{{ project()!.rating }}<span class="m-star">★</span></strong>
-              <span class="meta-sub">{{ project()!.reviews }} {{ lang.t('تقييم', 'Ratings') }}</span>
+              @if (project()!.internal) {
+                <small>{{ lang.t('الاستخدام', 'Access') }}</small>
+                <strong class="cat">{{ lang.t('داخلي', 'Internal') }}</strong>
+                <span class="meta-sub">{{ lang.t('للموظفين', 'Employees') }}</span>
+              } @else {
+                <small>{{ lang.t('التقييم', 'Rating') }}</small>
+                <strong>{{ project()!.rating }}<span class="m-star">★</span></strong>
+                <span class="meta-sub">{{ project()!.reviews }} {{ lang.t('تقييم', 'Ratings') }}</span>
+              }
             </div>
             <div class="meta-cell">
               <small>{{ lang.t('العمر', 'Age') }}</small>
