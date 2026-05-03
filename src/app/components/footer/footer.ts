@@ -39,8 +39,8 @@ import { RevealDirective } from '../../directives/reveal.directive';
           <div class="col">
             <h4>{{ lang.t('تواصل', 'Contact') }}</h4>
             <ul class="contact-list">
-              <li><a href="mailto:abdulaziz&#64;example.com">abdulaziz&#64;example.com</a></li>
-              <li><a href="https://wa.me/9665XXXXXXXX" target="_blank" rel="noopener">{{ lang.t('واتساب', 'WhatsApp') }}</a></li>
+              <li><a href="mailto:a.alotaibi.work&#64;gmail.com">a.alotaibi.work&#64;gmail.com</a></li>
+              <li><a href="https://wa.me/966556585342" target="_blank" rel="noopener">{{ lang.t('واتساب', 'WhatsApp') }}</a></li>
               <li class="loc">📍 {{ lang.t('الرياض، السعودية', 'Riyadh, Saudi Arabia') }}</li>
             </ul>
           </div>

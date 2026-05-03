@@ -456,7 +456,7 @@ export class ContactComponent {
     const body = encodeURIComponent(
       `${this.message()}\n\n— ${this.name()}\n${this.email()}`
     );
-    const mailto = `mailto:abdulaziz@example.com?subject=${subjectLine}&body=${body}`;
+    const mailto = `mailto:a.alotaibi.work@gmail.com?subject=${subjectLine}&body=${body}`;
     if (typeof window !== 'undefined') {
       window.location.href = mailto;
     }
@@ -473,23 +473,23 @@ export class ContactComponent {
 
   protected channels: Channel[] = [
     {
-      ar: { label: 'البريد الإلكتروني', sub: 'abdulaziz@example.com' },
-      en: { label: 'Email', sub: 'abdulaziz@example.com' },
-      href: 'mailto:abdulaziz@example.com',
+      ar: { label: 'البريد الإلكتروني', sub: 'a.alotaibi.work@gmail.com' },
+      en: { label: 'Email', sub: 'a.alotaibi.work@gmail.com' },
+      href: 'mailto:a.alotaibi.work@gmail.com',
       gradient: 'linear-gradient(135deg, #ff4ecd, #7b5cff)',
       iconPath: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v.5l8 5 8-5V6H4zm0 2.5V18h16V8.5l-8 5-8-5z'
     },
     {
-      ar: { label: 'واتساب', sub: '+966 5X XXX XXXX' },
-      en: { label: 'WhatsApp', sub: '+966 5X XXX XXXX' },
-      href: 'https://wa.me/9665XXXXXXXX',
+      ar: { label: 'واتساب', sub: '+966 55 658 5342' },
+      en: { label: 'WhatsApp', sub: '+966 55 658 5342' },
+      href: 'https://wa.me/966556585342',
       gradient: 'linear-gradient(135deg, #2ee6a8, #00d4ff)',
       iconPath: 'M17.6 6.32A7.86 7.86 0 0 0 12 4a8 8 0 0 0-7 11.84L4 20l4.28-1.12A7.94 7.94 0 0 0 12 20a8 8 0 0 0 5.6-13.68zM12 18.5a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25A6.5 6.5 0 1 1 12 18.5zm3.6-4.86c-.2-.1-1.18-.58-1.36-.65s-.32-.1-.46.1-.52.65-.64.78-.24.15-.44.05a5.4 5.4 0 0 1-2.7-2.36c-.2-.35.2-.32.58-1.07.06-.13.03-.24-.02-.34s-.46-1.1-.62-1.5-.32-.34-.46-.34h-.4a.78.78 0 0 0-.55.26 2.36 2.36 0 0 0-.74 1.76 4.1 4.1 0 0 0 .85 2.16 9.4 9.4 0 0 0 3.62 3.18c.5.22.9.35 1.21.45a2.96 2.96 0 0 0 1.34.08 2.2 2.2 0 0 0 1.44-1.02 1.78 1.78 0 0 0 .12-1c-.05-.1-.18-.16-.38-.25z'
     },
     {
       ar: { label: 'لينكد إن', sub: '/in/abdulaziz' },
       en: { label: 'LinkedIn', sub: '/in/abdulaziz' },
-      href: 'https://linkedin.com/in/abdulaziz',
+      href: 'https://linkedin.com/in/abdulaziz-alotaibi-347499287',
       gradient: 'linear-gradient(135deg, #00d4ff, #7b5cff)',
       iconPath: 'M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.74H5.67v8.6h2.67zM7 8.55a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.79v-4.71c0-2.5-1.34-3.66-3.12-3.66a2.7 2.7 0 0 0-2.45 1.34V9.74h-2.67v8.6h2.67v-4.74c0-1.04.45-1.66 1.4-1.66.85 0 1.5.6 1.5 1.7v4.7h2.67z'
     }
