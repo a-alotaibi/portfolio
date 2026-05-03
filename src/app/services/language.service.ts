@@ -4,7 +4,7 @@ export type Lang = 'ar' | 'en';
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
-  readonly lang = signal<Lang>('ar');
+  readonly lang = signal<Lang>('en');
   readonly dir = computed(() => (this.lang() === 'ar' ? 'rtl' : 'ltr'));
   readonly isAr = computed(() => this.lang() === 'ar');
 
