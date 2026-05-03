@@ -832,6 +832,21 @@ import { TypewriterDirective } from '../../directives/typewriter.directive';
       .stat-num { font-size: 1.5rem; }
     }
 
+    @media (max-width: 768px) {
+      .bg-blob {
+        filter: blur(40px);
+        opacity: 0.25;
+        animation: none;
+      }
+      .blob-1 { width: 280px; height: 280px; }
+      .blob-2 { width: 240px; height: 240px; }
+      .blob-3 { display: none; }
+      .orbit { animation: none; }
+      .name { animation: none; }
+      .card-btn { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(0,0,0,0.55); }
+      .web-img::after { animation: none; }
+    }
+
     @media (max-width: 520px) {
       .laptop { transform: translate(-20px, -50px); }
       html[dir='rtl'] .laptop { transform: translate(20px, -50px); }

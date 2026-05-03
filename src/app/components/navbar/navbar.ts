@@ -292,9 +292,22 @@ interface NavLink { id: string; ar: string; en: string; }
     }
 
     @media (max-width: 920px) {
-      .nav { margin: 8px 12px; padding: 10px 16px; }
+      .nav {
+        margin: 8px 12px;
+        padding: 10px 16px;
+        background: rgba(20, 20, 43, 0.92);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+      html[data-theme='light'] .nav { background: rgba(255,255,255,0.95); }
       .links { display: none; }
       .burger { display: flex; }
+      .mobile-menu {
+        background: rgba(11,11,26,0.97);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      html[data-theme='light'] .mobile-menu { background: rgba(246,247,251,0.98); }
     }
   `]
 })

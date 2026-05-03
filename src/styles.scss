@@ -58,9 +58,12 @@ html, body {
   font-family: 'Cairo', 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
   overflow-x: hidden;
   transition: background 0.4s, color 0.4s;
+}
+
+@media (min-width: 769px) {
+  html { scroll-behavior: smooth; }
 }
 
 html[lang='en'] body { font-family: 'Space Grotesk', 'Cairo', system-ui, sans-serif; }

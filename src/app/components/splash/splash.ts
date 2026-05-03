@@ -109,7 +109,7 @@ export class SplashComponent implements OnInit {
   protected readonly hiding = signal(false);
 
   ngOnInit() {
-    setTimeout(() => this.hiding.set(true), 1100);
-    setTimeout(() => this.visible.set(false), 1700);
+    setTimeout(() => this.hiding.set(true), 600);
+    setTimeout(() => this.visible.set(false), 1100);
   }
 }
