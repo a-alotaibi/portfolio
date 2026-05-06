@@ -10,7 +10,6 @@ import { FooterComponent } from './components/footer/footer';
 import { SplashComponent } from './components/splash/splash';
 import { ScrollProgressComponent } from './components/scroll-progress/scroll-progress';
 import { CursorGlowComponent } from './components/cursor-glow/cursor-glow';
-import { TechMarqueeComponent } from './components/tech-marquee/tech-marquee';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top';
 import { ActiveSectionService } from './services/active-section.service';
 import { ThemeService } from './services/theme.service';
@@ -30,7 +29,6 @@ import { ThemeService } from './services/theme.service';
     SplashComponent,
     ScrollProgressComponent,
     CursorGlowComponent,
-    TechMarqueeComponent,
     ScrollTopComponent
   ],
   templateUrl: './app.html',
