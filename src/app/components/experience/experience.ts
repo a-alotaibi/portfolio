@@ -219,17 +219,17 @@ export class ExperienceComponent {
       ar: {
         role: 'مطور ويب وموبايل',
         company: 'شركة البيئة مخططون ومعماريون ومهندسون',
-        desc: 'أطوّر تطبيقات iOS و Android ومنصات ويب حديثة بـ Angular و Next.js. أركّز على تجربة المستخدم، الأداء، وبناء حلول رقمية تخدم مشاريع التخطيط والعمارة والهندسة.'
+        desc: 'أطوّر تطبيقات iOS و Android ومنصات ويب حديثة بـ Next.js. أركّز على تجربة المستخدم، الأداء، وبناء حلول رقمية تخدم مشاريع التخطيط والعمارة والهندسة.'
       },
       en: {
         role: 'Web & Mobile Developer',
         company: 'BEEAH Planners, Architects & Engineers',
-        desc: 'Building iOS/Android apps and modern web platforms with Angular and Next.js. Focused on UX, performance, and delivering digital solutions for planning, architecture, and engineering projects.'
+        desc: 'Building iOS/Android apps and modern web platforms with Next.js. Focused on UX, performance, and delivering digital solutions for planning, architecture, and engineering projects.'
       },
       emoji: '🚀',
       logo: 'companies/beeah.png',
       gradient: 'linear-gradient(135deg, #ff4ecd 0%, #7b5cff 100%)',
-      tags: ['Swift', 'Kotlin', 'Angular', 'Next.js', 'TypeScript'],
+      tags: ['Swift', 'Kotlin', 'Next.js', 'TypeScript'],
       current: true
     }
   ];
