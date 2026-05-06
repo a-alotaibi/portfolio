@@ -43,8 +43,8 @@ import { TypewriterDirective } from '../../directives/typewriter.directive';
 
           <p class="tagline" reveal="up" [delay]="300">
             {{ lang.t(
-              'أبرمج تطبيقات iOS و Android، وأبني مواقع ومنصات ويب حديثة — تجربة سلسة وأداء عالي على كل شاشة.',
-              'I build iOS and Android apps, and modern web platforms — smooth experience and great performance on every screen.'
+              'من أول رسمة إلى أول إطلاق — أبني تجارب سريعة، أنيقة، ومدروسة بكل تفاصيلها.',
+              'From first sketch to launch day — I build experiences that feel fast, look sharp, and just work.'
             ) }}
           </p>
 
