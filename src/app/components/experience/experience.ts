@@ -197,7 +197,6 @@ interface Job {
       font-weight: 600;
       transition: 0.25s;
     }
-    html[data-theme='light'] .t { background: rgba(11,11,26,0.04); }
     .t:hover {
       transform: translateY(-2px);
       color: var(--text);

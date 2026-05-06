@@ -1,6 +1,5 @@
 import { Component, HostListener, effect, inject, signal } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
-import { ThemeService } from '../../services/theme.service';
 import { ActiveSectionService } from '../../services/active-section.service';
 
 interface NavLink { id: string; ar: string; en: string; }
@@ -26,18 +25,6 @@ interface NavLink { id: string; ar: string; en: string; }
       </ul>
 
       <div class="actions">
-        <button class="icon-btn theme-btn" (click)="theme.toggle()" [attr.aria-label]="lang.t('تبديل الثيم', 'Toggle theme')">
-          @if (theme.theme() === 'dark') {
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-            </svg>
-          } @else {
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          }
-        </button>
         <button class="icon-btn lang-btn" (click)="lang.toggle()" [attr.aria-label]="lang.t('تغيير اللغة', 'Change language')">
           <span>{{ lang.isAr() ? 'EN' : 'ع' }}</span>
         </button>
@@ -65,9 +52,6 @@ interface NavLink { id: string; ar: string; en: string; }
           }
         </ul>
         <div class="menu-footer">
-          <button class="m-btn" (click)="theme.toggle()">
-            {{ theme.theme() === 'dark' ? lang.t('وضع فاتح', 'Light mode') : lang.t('وضع داكن', 'Dark mode') }}
-          </button>
           <button class="m-btn" (click)="lang.toggle()">
             {{ lang.isAr() ? 'English' : 'العربية' }}
           </button>
@@ -99,10 +83,6 @@ interface NavLink { id: string; ar: string; en: string; }
       border-radius: 999px;
       box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
       transition: box-shadow 0.4s, border-color 0.4s, padding 0.3s, background 0.4s;
-    }
-    html[data-theme='light'] .nav {
-      background: rgba(255,255,255,0.75);
-      box-shadow: 0 10px 30px -10px rgba(20,20,43,0.15);
     }
     .nav.scrolled { padding: 10px 24px; }
 
@@ -174,8 +154,6 @@ interface NavLink { id: string; ar: string; en: string; }
       border-color: var(--c2);
     }
 
-    .theme-btn:hover { color: var(--c4); }
-
     .lang-btn:hover {
       background: var(--grad-1);
       border-color: transparent;
@@ -206,9 +184,6 @@ interface NavLink { id: string; ar: string; en: string; }
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s var(--ease-out);
-    }
-    html[data-theme='light'] .mobile-menu {
-      background: rgba(246,247,251,0.92);
     }
     .mobile-menu.open { opacity: 1; pointer-events: auto; }
 
@@ -299,7 +274,6 @@ interface NavLink { id: string; ar: string; en: string; }
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
       }
-      html[data-theme='light'] .nav { background: rgba(255,255,255,0.95); }
       .links { display: none; }
       .burger { display: flex; }
       .mobile-menu {
@@ -307,13 +281,11 @@ interface NavLink { id: string; ar: string; en: string; }
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
       }
-      html[data-theme='light'] .mobile-menu { background: rgba(246,247,251,0.98); }
     }
   `]
 })
 export class NavbarComponent {
   protected lang = inject(LanguageService);
-  protected theme = inject(ThemeService);
   protected active = inject(ActiveSectionService);
 
   protected readonly menuOpen = signal(false);

@@ -12,7 +12,6 @@ import { ScrollProgressComponent } from './components/scroll-progress/scroll-pro
 import { CursorGlowComponent } from './components/cursor-glow/cursor-glow';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top';
 import { ActiveSectionService } from './services/active-section.service';
-import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -36,8 +35,6 @@ import { ThemeService } from './services/theme.service';
 })
 export class App implements OnInit {
   private active = inject(ActiveSectionService);
-  // Eagerly initialize ThemeService so the theme attribute is applied early
-  private theme = inject(ThemeService);
 
   ngOnInit() {
     this.active.init();
