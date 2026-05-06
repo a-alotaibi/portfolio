@@ -156,7 +156,7 @@ export class SkillsComponent {
       en: 'Tools & workflow',
       icon: '🛠️',
       color: '#2ee6a8',
-      items: ['Git', 'GitHub', 'VS Code', 'Xcode', 'Android Studio', 'Postman', 'Chrome DevTools']
+      items: ['Git', 'GitHub', 'VS Code', 'Xcode', 'Android Studio', 'Postman']
     }
   ];
 }
